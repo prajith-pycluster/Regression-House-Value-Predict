@@ -1,1 +1,1 @@
-# regression_house_val_predict
+#Calculates house value using RandomForest regressor on California housing dataset

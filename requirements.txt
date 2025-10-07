@@ -1,0 +1,9 @@
+Modules Required:
+
+numpy
+pandas
+tarfile
+os
+sklearn
+urllib
+
