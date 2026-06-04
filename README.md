@@ -40,8 +40,6 @@ graph TD
     
     J --> K[Random Forest Grid Search]
 
----
-
 ## 🛠️ Prerequisites & Installation
 
 To run this pipeline locally, make sure you have Python 3.10+ installed. 
