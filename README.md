@@ -16,18 +16,32 @@ An end-to-end Machine Learning pipeline implemented in scikit-learn to predict C
 ## 📊 Pipeline Architecture
 
 The workflow processes raw data into a model-ready state using the following architecture:
-Raw Data ──> Stratified Split ──> Separate Features & Labels
-│
-┌────────────────────────────────────┴────────────────────────────────────┐
-▼ (Numerical Features)                                                    ▼ (Categorical Features)
-Median Imputer ──> Feature Engineering ──> Standard Scaler              One-Hot Encoder
-│                                                                         │
-└────────────────────────────────────┬────────────────────────────────────┘
-▼
-ColumnTransformer
-│
-▼
-Random Forest Grid Search
+
+```mermaid
+graph TD
+    A[Raw Data] --> B[Stratified Split]
+    B --> C[Separate Features & Labels]
+    
+    C --> D[Numerical Features]
+    C --> E[Categorical Features]
+    
+    subgraph Numerical Pipeline
+        D --> F[Median Imputer]
+        F --> G[Feature Engineering AttrCreation]
+        G --> H[Standard Scaler]
+    end
+    
+    subgraph Categorical Pipeline
+        E --> I[One-Hot Encoder]
+    end
+    
+    H --> J[ColumnTransformer]
+    I --> J
+    
+    J --> K[Random Forest Grid Search]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style K fill:#bbf,stroke:#333,stroke-width:2px
 
 ---
 
