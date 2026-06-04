@@ -10,35 +10,7 @@ An end-to-end Machine Learning pipeline implemented in scikit-learn to predict C
 * **Custom Scikit-Learn Transformer:** Features a custom engineering class (`AttrCreation`) to automatically extract valuable ratio features (e.g., rooms per household, population density per household).
 * **Parallel Transformation Pipeline:** Implements `ColumnTransformer` to handle parallel data pipelines: numerical features are imputed, engineered, and scaled, while categorical elements are dynamically processed using One-Hot Encoding.
 * **Hyperparameter Optimization:** Employs `GridSearchCV` paired with a Random Forest Regressor over multiple parameter combinations evaluated via 5-fold cross-validation.
-
----
-
-## 📊 Pipeline Architecture
-
-The workflow processes raw data into a model-ready state using the following architecture:
-
-```mermaid
-graph TD
-    A[Raw Data] --> B[Stratified Split]
-    B --> C[Separate Features & Labels]
-    
-    C --> D[Numerical Features]
-    C --> E[Categorical Features]
-    
-    subgraph Numerical Pipeline
-        D --> F[Median Imputer]
-        F --> G[Feature Engineering AttrCreation]
-        G --> H[Standard Scaler]
-    end
-    
-    subgraph Categorical Pipeline
-        E --> I[One-Hot Encoder]
-    end
-    
-    H --> J[ColumnTransformer]
-    I --> J
-    
-    J --> K[Random Forest Grid Search]
+* 
 
 ## 🛠️ Prerequisites & Installation
 
